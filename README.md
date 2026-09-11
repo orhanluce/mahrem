@@ -54,7 +54,7 @@ Bu bir alpha sürümüdür. Serbest metindeki tüm kişi ve kurum adlarını bul
 Gerekenler: Python 3.10+ ve `uv`.
 
 ```powershell
-git clone <bu-reponun-github-adresi>
+git clone https://github.com/orhanluce/mahrem.git
 cd mahrem
 uv tool install .
 ```
