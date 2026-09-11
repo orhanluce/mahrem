@@ -1,6 +1,6 @@
 ---
 name: mahrem
-description: Yerel TXT veya Markdown dosyalarini Claude, ChatGPT ya da Codex ile islemeden once hassas verileri rumuzlamak ve is bittikten sonra cihazda geri acmak icin kullan. Kullanici gizlilik, anonimlestirme, maskeleme, TCKN, IBAN, telefon, e-posta veya hassas belge dediginde tetikle. Sohbete zaten yapistirilmis ham metni korudugunu iddia etme.
+description: Yerel TXT, Markdown, DOCX veya metin PDF dosyalarini yapay zeka ile islemeden once hassas verileri rumuzlamak ve is bittikten sonra cihazda geri acmak icin kullan. Sohbete zaten yapistirilmis ham metni korudugunu iddia etme.
 ---
 
 # Mahrem dosya akisi
@@ -17,9 +17,9 @@ Bu skill bir talimat katmanidir. Gercek maskeleme `mahrem` yerel MCP araclariyla
 
 ## Is akisi
 
-1. Kullanicidan yerel `.txt` veya `.md` dosyasinin mutlak yolunu iste ya da verdigi yolu kullan.
+1. Kullanicidan yerel `.txt`, `.md`, `.docx` veya metin iceren `.pdf` dosyasinin mutlak yolunu iste ya da verdigi yolu kullan. Ham dosyayi baska aracla okuma.
 2. Istenirse `scan_file` ile yalnizca tur ve adet raporu cikar.
-3. `mask_file` cagrisini yap. Bundan sonra yalnizca `masked_text` ile calis.
+3. `mask_file` cagrisini yap. `warnings` alanini kullaniciya bildir; Word/PDF ciktisinin duz metin oldugunu, bicim veya imza tasimadigini belirt. Kullanici maskeli dosyayi yerelde kontrol etmeden icerikle calismaya devam etme. Bundan sonra yalnizca `masked_text` ile calis.
 4. Urettigin sonucu, `[TCKN-1]`, `[KISI-1]` gibi yer tutuculari aynen koruyarak yeni bir maskeli dosyaya yaz.
 5. Kullanicinin son dosyayi istemesi halinde `restore_file` ile yerel acik metin dosyasini olustur.
 6. Geri acilan dosyayi yeniden okuma. Yolunu bildir ve `forget_session` ile bellek ici eslesmeyi sil.

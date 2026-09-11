@@ -38,7 +38,7 @@ Menü adları uygulama sürümüne göre değişebilir. Yerel STDIO seçeneği b
 
 ### ChatGPT veya Claude'u tarayıcıda kullanıyorsanız
 
-Bu sürüm tarayıcıya tek tıkla eklenen bir uzantı değildir. Web sohbetine yüklediğiniz ham belgeyi önceden maskeleyemez. Yerel araç destekleyen masaüstü uygulamasını kullanın. Web için gönderimden önce çalışan tarayıcı eklentisi henüz hazırlanmadı.
+[Tarayıcı eklentisi kurulum rehberini açın](TARAYICI.md). Bu yol Python veya masaüstü bağlantısı gerektirmez. Metni önce Mahrem'in ayrı sekmesinde maskeler, kontrol eder ve sonra sohbete kopyalarsınız. Eklenti sohbet sitesindeki gönderimi veya dosya yüklemeyi otomatik denetlemez. Henüz mağazada değildir; indirilen klasörden yüklenir.
 
 ## 3. Önce örnek belgeyle deneyin
 
@@ -52,7 +52,11 @@ Maskeleme sonunda aynı klasörde `.masked.txt` ile biten bir kopya oluşur. Bu 
 
 ## 4. Belgenizle çalışın
 
-Şimdilik `.txt` ve `.md` dosyaları desteklenir. Word belgesinin bir kopyasını **Düz Metin (.txt), UTF-8** olarak kaydedin; biçimlendirme kaybolabilir. PDF dosyasını doğrudan vermeyin.
+`.txt`, `.md`, **Word `.docx`** ve **metin içeren `.pdf`** dosyaları desteklenir. Sohbete dosyanın kendisini yüklemeyin; yalnızca bilgisayarınızdaki tam yolunu verin. Eski `.doc` dosyasını Word'de `.docx` olarak kaydedin.
+
+Word/PDF için ayrı bir **maskeli TXT kopyası** oluşur. Kaynak belge değiştirilmez; yeni çıktı sayfa düzenini, biçimlendirmeyi ve dijital imzayı taşımaz. PDF üzerinde karartma yapılmaz. Görseller, gömülü dosyalar ve form içeriği eksik kalabilir; çıkarılan metni kontrol edin.
+
+Şifreli PDF veya metin okunamayan sayfa içeren PDF işlenmez. OCR desteği yoktur. Taranmış belgeler için kurumunuzun onayladığı yerel OCR aracıyla metin çıkarıp sonucu kontrol etmeniz gerekir.
 
 Kontrol ettiğiniz maskeli metin için örnek istek:
 

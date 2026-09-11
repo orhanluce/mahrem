@@ -42,7 +42,7 @@ def validate_tckn(value: str) -> bool:
 
 
 def validate_iban(value: str) -> bool:
-    compact = re.sub(r"\s", "", value).upper()
+    compact = re.sub(r"[\s-]", "", value).upper()
     if not re.fullmatch(r"TR\d{24}", compact):
         return False
     rearranged = compact[4:] + compact[:4]
@@ -91,21 +91,21 @@ DETECTORS = (
     ),
     Detector("TCKN", re.compile(r"(?<!\d)[1-9]\d{10}(?!\d)"), 95, validate_tckn),
     Detector("IBAN", re.compile(r"(?i)(?<![A-Z0-9])TR(?:[ -]?\d){24}(?![A-Z0-9])"), 90, validate_iban),
-    Detector("KART", re.compile(r"(?<!\d)(?:\d[ -]?){13,19}(?!\d)"), 85, validate_luhn),
+    Detector("KART", re.compile(r"(?<!\d)\d(?:[ -]?\d){12,18}(?!\d)"), 85, validate_luhn),
     Detector(
         "TELEFON",
         re.compile(r"(?<!\d)(?:\+?90[\s().-]*)?(?:0[\s().-]*)?5\d{2}[\s().-]*\d{3}[\s.-]*\d{2}[\s.-]*\d{2}(?!\d)"),
         80,
         validate_phone,
     ),
-    Detector("URL", re.compile(r"(?i)\bhttps?://[^\s<>()]+"), 75),
+    Detector("URL", re.compile(r"(?i)\bhttps?://[^\s<>()]+"), 120),
     Detector("IP", re.compile(r"(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)"), 70, validate_ipv4),
 )
 
 
 ROLE_NAME_PATTERN = re.compile(
-    r"(?i)\b(?:davac[ıi]|daval[ıi]|m[üu]vekkil|vekil|hasta|m[üu]steri|ad[ıi ]*soyad[ıi]?)\s*[:\-]\s*"
-    r"([A-ZÇĞİÖŞÜ][a-zçğıöşü]+(?:\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]+){1,3})"
+    r"(?i:\b(?:davac[ıi]|daval[ıi]|m[üu]vekkil|vekil|hasta|m[üu][şs]teri|ad[ıi ]*soyad[ıi]?))[ \t]*[:\-][ \t]*"
+    r"([A-ZÇĞİÖŞÜ][A-Za-zÇĞİÖŞÜçğıöşü]+(?:[ \t]+[A-ZÇĞİÖŞÜ][A-Za-zÇĞİÖŞÜçğıöşü]+){1,3})"
 )
 
 

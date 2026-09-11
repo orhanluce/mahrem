@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mahrem",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hassas verileri yapay zeka istemcilerine ulasmadan once yerelde rumuzlayan acik kaynak MCP ve skill paketi"
 }

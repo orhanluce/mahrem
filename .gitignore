@@ -11,3 +11,5 @@ dist/
 *.restored.txt
 *.restored.md
 .mahrem/
+tmp/
+node_modules/

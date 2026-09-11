@@ -6,9 +6,10 @@ from pathlib import Path
 
 from .detectors import find_candidates, load_rules
 from .masking import MaskSession, normalize_label
+from .documents import INPUT_SUFFIXES, TEXT_SUFFIXES, read_document
 
 
-ALLOWED_SUFFIXES = {".txt", ".md"}
+ALLOWED_SUFFIXES = INPUT_SUFFIXES
 
 
 class LocalPrivacyService:
@@ -42,12 +43,13 @@ class LocalPrivacyService:
             stem = source.stem
             if marker == "restored" and stem.endswith(".masked"):
                 stem = stem[: -len(".masked")]
-            path = source.with_name(f"{stem}.{marker}{source.suffix}")
+            suffix = source.suffix if source.suffix.lower() in TEXT_SUFFIXES else '.txt'
+            path = source.with_name(f"{stem}.{marker}{suffix}")
         if path == source:
             raise ValueError("Kaynak dosyanin uzerine yazilamaz.")
         if not path.parent.is_dir():
             raise ValueError("Cikti klasoru mevcut degil.")
-        if path.suffix.lower() not in ALLOWED_SUFFIXES:
+        if path.suffix.lower() not in TEXT_SUFFIXES:
             raise ValueError("Cikti uzantisi .txt veya .md olmali.")
         return path
 
@@ -65,7 +67,8 @@ class LocalPrivacyService:
 
     def scan_file(self, source_path: str, rules_path: str = "") -> dict[str, object]:
         source = self._input_path(source_path)
-        text = source.read_text(encoding="utf-8")
+        document = read_document(source)
+        text = document.text
         candidates = find_candidates(text, self._rules(rules_path))
         counts = Counter(normalize_label(item.category) for item in candidates)
         return {
@@ -73,6 +76,7 @@ class LocalPrivacyService:
             "counts": dict(sorted(counts.items())),
             "detection_count": len(candidates),
             "raw_values_returned": False,
+            "warnings": document.warnings,
         }
 
     def mask_file(
@@ -84,7 +88,8 @@ class LocalPrivacyService:
     ) -> dict[str, object]:
         source = self._input_path(source_path)
         target = self._output_path(source, output_path, "masked")
-        text = source.read_text(encoding="utf-8")
+        document = read_document(source)
+        text = document.text
         session = MaskSession()
         result = session.mask(text, self._rules(rules_path))
         self._write(target, result.masked_text, overwrite)
@@ -96,6 +101,8 @@ class LocalPrivacyService:
             "counts": result.counts,
             "replacement_count": result.replacement_count,
             "mapping_storage": "memory_only",
+            "warnings": document.warnings,
+            "review_required": True,
         }
 
     def restore_file(
@@ -105,7 +112,7 @@ class LocalPrivacyService:
         output_path: str = "",
         overwrite: bool = False,
     ) -> dict[str, object]:
-        source = self._input_path(masked_path)
+        source = self._input_path(masked_path, TEXT_SUFFIXES)
         target = self._output_path(source, output_path, "restored")
         session = self._sessions.get(session_id)
         if session is None:

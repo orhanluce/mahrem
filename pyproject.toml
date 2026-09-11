@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mahrem-local"
-version = "0.1.0"
+version = "0.2.0"
 description = "Local-first PII masking MCP server for Turkish documents"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,7 +16,7 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
 ]
-dependencies = ["mcp>=2.0,<3"]
+dependencies = ["mcp>=2.0,<3", "pypdf>=6.0,<7", "defusedxml>=0.7.1,<1"]
 
 [project.scripts]
 mahrem = "mahrem.cli:main"

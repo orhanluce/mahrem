@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Mahrem — Yerel Maskeleme",
+  "version": "0.2.0",
+  "description": "Metninizi AI sohbetine yapıştırmadan önce ayrı bir yerel sekmede maskeleyin. Sunucu veya hesap gerekmez.",
+  "permissions": ["clipboardWrite"],
+  "action": {"default_title": "Mahrem'i aç"},
+  "background": {"service_worker": "background.js"},
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  }
+}

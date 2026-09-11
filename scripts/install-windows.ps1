@@ -63,7 +63,9 @@ Rehber: https://github.com/orhanluce/mahrem/blob/main/docs/KOLAY-KURULUM.md
 
 Ilk denemede gercek musteri belgesi kullanmayin.
 Sohbete belge yuklemeyin; yalnizca dosyanin yolunu verin.
-Bu surum yalnizca TXT ve Markdown destekler. Tum isimleri otomatik bulamaz.
+TXT, Markdown, DOCX ve metin PDF desteklenir. Cikti duz metindir; OCR yoktur.
+Tum isimleri otomatik bulamaz. Maskeli ciktiyi kontrol edin.
+Tarayici eklentisi: https://github.com/orhanluce/mahrem/blob/main/docs/TARAYICI.md
 "@
 [IO.File]::WriteAllText($notePath, $note, $utf8)
 Write-Host "Kurulum dogrulandi. Baglanti rehberi: $notePath"

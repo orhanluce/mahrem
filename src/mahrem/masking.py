@@ -45,6 +45,8 @@ class MaskSession:
         return token
 
     def mask(self, text: str, rules: dict[str, object] | None = None) -> MaskResult:
+        if TOKEN_PATTERN.search(text):
+            raise ValueError('Kaynakta rumuz biçiminde metin var; geri açma çakışmasını önlemek için önce kontrol edin.')
         candidates = find_candidates(text, rules)
         counts: Counter[str] = Counter()
         pieces: list[str] = []

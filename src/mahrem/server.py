@@ -20,7 +20,7 @@ service = LocalPrivacyService()
 
 @mcp.tool()
 def scan_file(source_path: str, rules_path: str = "") -> dict[str, Any]:
-    """Count detectable sensitive data in a local TXT/Markdown file without returning raw values."""
+    """Scan local TXT, Markdown, DOCX or text PDF without returning raw values. Report extraction warnings."""
     return service.scan_file(source_path, rules_path)
 
 
@@ -31,7 +31,7 @@ def mask_file(
     output_path: str = "",
     overwrite: bool = False,
 ) -> dict[str, Any]:
-    """Mask a local file and return only the safe masked text plus an in-memory session id."""
+    """Mask local TXT/MD/DOCX/PDF to plain text. Detection is partial: human review is required."""
     return service.mask_file(source_path, rules_path, output_path, overwrite)
 
 
