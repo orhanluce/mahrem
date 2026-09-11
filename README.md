@@ -6,6 +6,14 @@ Mahrem ayrı bir SaaS veya belge yükleme sitesi değildir. Claude Code, Codex v
 
 > Önemli: Ham metni önce sohbete yapıştırıp sonra “maskele” demek güvenli değildir. Metin o anda modele ulaşmış olur. Mahrem bu nedenle metin değil, **yerel dosya yolu** kabul eder.
 
+## Hukuk profesyonelleri için kolay başlangıç
+
+**[Windows için indir](https://github.com/orhanluce/mahrem/archive/refs/heads/main.zip)** · **[Adım adım kurulum rehberi](docs/KOLAY-KURULUM.md)**
+
+ZIP dosyasını indirin, **Tümünü ayıkla** ile açın ve **Kur.bat** dosyasına çift tıklayın. Gerekli yazılımlar otomatik hazırlanır; Git veya Python komutu yazmanız gerekmez. Kurulum sonunda uygulamanıza gireceğiniz hazır bağlantı bilgileri açılır.
+
+Kurulum çift tıkla başlar; Claude/Codex bağlantısı için rehberdeki kısa ayar adımı da gerekir. Windows kurucusu henüz imzalı değildir. İlk denemeyi paketteki örnek belgeyle yapın. Bu sürüm TXT/Markdown destekler; Word/PDF desteği ve tarayıcı eklentisi henüz yoktur.
+
 ## Nasıl çalışır?
 
 ```mermaid
