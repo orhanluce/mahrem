@@ -1,0 +1,24 @@
+{
+  "name": "mahrem",
+  "version": "0.1.0",
+  "description": "Hassas verileri yapay zekaya gitmeden once yerelde rumuzlayan acik kaynak gizlilik katmani.",
+  "author": {
+    "name": "Orhan"
+  },
+  "license": "MIT",
+  "keywords": ["privacy", "pii", "redaction", "mcp", "turkish"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mahrem",
+    "shortDescription": "Hassas dosyalari yerelde rumuzla.",
+    "longDescription": "TCKN, IBAN, telefon, e-posta ve benzeri yapisal verileri yerel MCP sunucusunda maskeler; modele yalnizca rumuzlu metni verir.",
+    "developerName": "Orhan",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Bu yerel dosyayi Mahrem ile guvenli bicimde isle.",
+      "Dosyadaki hassas veri turlerini, icerigi gostermeden tara."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

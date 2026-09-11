@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mahrem": {
+      "command": "mahrem-mcp",
+      "args": [],
+      "env": {
+        "PYTHONUTF8": "1"
+      }
+    }
+  }
+}

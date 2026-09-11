@@ -1,0 +1,9 @@
+{
+  "name": "mahrem",
+  "version": "0.1.0",
+  "description": "Hassas dosyalari yapay zekaya gitmeden once yerelde rumuzlar.",
+  "author": {
+    "name": "Orhan"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+Bu dosyadaki tum veriler sentetiktir.
+
+Musteri: Ayse Deneme
+TCKN: 10000000146
+Telefon: +90 555 000 11 22
+E-posta: ayse.deneme@example.com
+IBAN: TR78 9999 9999 9999 9999 9999 99
+IP: 192.0.2.10

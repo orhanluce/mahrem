@@ -1,0 +1,11 @@
+{
+  "literal_terms": [
+    {
+      "value": "Ozel Musteri A.S.",
+      "label": "KURUM"
+    }
+  ],
+  "allowlist": [
+    "192.0.2.10"
+  ]
+}
